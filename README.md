@@ -8,10 +8,8 @@ Página web interactiva que aplica la **Serie de Fibonacci** para simular un pla
 
 ## 🌐 Enlaces
 
-- 📁 **Repositorio:** [github.com/tu-usuario/desafio-fibonacci](https://github.com/tu-usuario/desafio-fibonacci)
-- 🌍 **Página publicada:** [tu-usuario.github.io/desafio-fibonacci](https://tu-usuario.github.io/desafio-fibonacci)
-
-> ⚠️ Actualiza estos enlaces con tu usuario de GitHub real.
+- 📁 **Repositorio:** [github.com/Ariel805/DesafioFibonacci](https://github.com/Ariel805/DesafioFibonacci)
+- 🌍 **Página publicada:** [Ariel805.github.io/DesafioFibonacci](https://Ariel805.github.io/DesafioFibonacci)
 
 ## 🛠️ Tecnologías utilizadas
 
