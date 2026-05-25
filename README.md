@@ -1,15 +1,15 @@
-# 💰 Ahorro Progresivo con Fibonacci
+#  Ahorro Progresivo con Fibonacci
 
-**Desafío Web 2025 — Matemáticas que resuelven problemas**
+**Desafío Web 2026**
 
-## 📌 Descripción
+##  Descripción
 
 Página web interactiva que aplica la **Serie de Fibonacci** para simular un plan de ahorro progresivo. El usuario ingresa la cantidad de meses y la página calcula cuánto ahorrará mes a mes siguiendo el patrón matemático de Fibonacci.
 
-## 🌐 Enlaces
+##  Enlaces
 
-- 📁 **Repositorio:** [github.com/Ariel805/DesafioFibonacci](https://github.com/Ariel805/DesafioFibonacci)
-- 🌍 **Página publicada:** [Ariel805.github.io/DesafioFibonacci](https://Ariel805.github.io/DesafioFibonacci)
+-  **Repositorio:** [github.com/Ariel805/DesafioFibonacci](https://github.com/Ariel805/DesafioFibonacci)
+-  **Página publicada:** [Ariel805.github.io/DesafioFibonacci](https://Ariel805.github.io/DesafioFibonacci)
 
 ## 🛠️ Tecnologías utilizadas
 
@@ -21,7 +21,7 @@ Página web interactiva que aplica la **Serie de Fibonacci** para simular un pla
 | Git / GitHub | Control de versiones |
 | GitHub Pages | Publicación en la web |
 
-## 📂 Estructura del proyecto
+##  Estructura del proyecto
 
 ```
 desafio-fibonacci/
@@ -34,14 +34,14 @@ desafio-fibonacci/
 └── README.md           ← Este archivo
 ```
 
-## ▶️ Cómo usar
+##  Cómo usar
 
 1. Abre la página en tu navegador.
 2. Ingresa el número de meses en el formulario.
 3. Haz clic en **"Calcular mi Ahorro"**.
 4. Observa la tabla, el gráfico y el resumen generado.
 
-## 🔢 Algoritmo de Fibonacci
+##  Algoritmo de Fibonacci
 
 ```javascript
 let a = 1;  // Mes 1
@@ -55,7 +55,7 @@ for (let i = 3; i <= meses; i++) {
 }
 ```
 
-## ✅ Criterios cumplidos
+##  Criterios cumplidos
 
 - [x] Contexto del problema real explicado
 - [x] Algoritmo de Fibonacci implementado y explicado
