@@ -11,7 +11,7 @@ Página web interactiva que aplica la **Serie de Fibonacci** para simular un pla
 -  **Repositorio:** [github.com/Ariel805/DesafioFibonacci](https://github.com/Ariel805/DesafioFibonacci)
 -  **Página publicada:** [Ariel805.github.io/DesafioFibonacci](https://Ariel805.github.io/DesafioFibonacci)
 
-## 🛠️ Tecnologías utilizadas
+##  Tecnologías utilizadas
 
 | Tecnología | Uso |
 |-----------|-----|
