@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ahorro Progresivo con Fibonacci</title>
+  <title>Matemáticas Aplicadas a Problemas Reales</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link
-    href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Nunito:wght@400;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Nunito:wght@400;600;700;800&display=swap"
     rel="stylesheet"
   />
 
@@ -15,13 +15,13 @@
 </head>
 <body>
 
-  <header id="encabezado">
+  <header id="encabezado" class="tema-index">
     <div class="header-decoracion"></div>
-    <div class="header-contenido">
-      <div class="moneda-icono">💰</div>
-      <h1 class="titulo-principal">Ahorro Progresivo</h1>
-      <h2 class="titulo-subtitulo">con la Serie de Fibonacci</h2>
-      <p class="header-alumno">Desafio Web — Serie de Fibonacci aplicado a la Vida Real</p>
+    <div class="header-contenido header-contenido-amplio">
+      <div class="moneda-icono">🧠</div>
+      <h1 class="titulo-principal">Matemáticas Aplicadas</h1>
+      <h2 class="titulo-subtitulo">problemas reales con Fibonacci, números primos y ambos juntos</h2>
+      <p class="header-alumno">Desafío Web - Matemáticas que resuelven situaciones de la vida real</p>
       <p class="header-nombre"><strong>Ariel Orlando Bustillos Cadena</strong></p>
     </div>
     <div class="ola-decoracion">
@@ -31,217 +31,90 @@
     </div>
   </header>
 
-  <main class="contenedor-principal">
+  <main class="contenedor-principal contenedor-index">
 
-    <section id="contexto" class="tarjeta">
-      <div class="tarjeta-icono">🌍</div>
-      <h2 class="seccion-titulo">Contexto del Problema</h2>
+    <section class="tarjeta tarjeta-presentacion">
+      <div class="tarjeta-icono">📌</div>
+      <h2 class="seccion-titulo">Elige una resolución</h2>
       <p>
-        Muchas personas quieren ahorrar dinero, pero les cuesta mantener la constancia cuando
-        el esfuerzo les parece demasiado grande desde el inicio. Si comienzas ahorrando una
-        cantidad muy pequeña e incrementas el ahorro de forma <strong>gradual y natural</strong>,
-        es más fácil mantener el hábito a largo plazo.
-      </p>
-      <p>
-        En este proyecto se propone un plan de ahorro donde cada mes se deposita la cantidad
-        que corresponde a la <strong>Serie de Fibonacci</strong>. Esto significa que en los
-        primeros meses el esfuerzo es mínimo (Bs. 1), pero con el tiempo los depósitos crecen
-        de forma progresiva, siguiendo un patrón matemático que se encuentra en la naturaleza:
-        el crecimiento de flores, conchas marinas, poblaciones de conejos y más.
-      </p>
-      <div class="ejemplo-tabla-mini">
-        <table>
-          <thead>
-            <tr><th>Mes</th><th>Ahorro mensual</th><th>Total acumulado</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>1</td><td>Bs. 1</td><td>Bs. 1</td></tr>
-            <tr><td>2</td><td>Bs. 1</td><td>Bs. 2</td></tr>
-            <tr><td>3</td><td>Bs. 2</td><td>Bs. 4</td></tr>
-            <tr><td>4</td><td>Bs. 3</td><td>Bs. 7</td></tr>
-            <tr><td>5</td><td>Bs. 5</td><td>Bs. 12</td></tr>
-            <tr><td>6</td><td>Bs. 8</td><td>Bs. 20</td></tr>
-          </tbody>
-        </table>
-        <p class="tabla-nota">📌 Tabla de ejemplo con 6 meses de ahorro Fibonacci</p>
-      </div>
-    </section>
-
-    <section id="algoritmo" class="tarjeta">
-      <div class="tarjeta-icono">🧮</div>
-      <h2 class="seccion-titulo">Explicación del Algoritmo</h2>
-      <p>
-        La <strong>Serie de Fibonacci</strong> es una secuencia numérica donde cada número
-        es la suma de los dos anteriores. Comienza con 1 y 1, y luego cada valor se obtiene
-        sumando los dos anteriores:
-      </p>
-
-      <div class="secuencia-visual">
-        <span class="num-fib">1</span>
-        <span class="operador">+</span>
-        <span class="num-fib">1</span>
-        <span class="operador">=</span>
-        <span class="num-fib resultado">2</span>
-        <span class="operador">→</span>
-        <span class="num-fib resultado">3</span>
-        <span class="operador">→</span>
-        <span class="num-fib resultado">5</span>
-        <span class="operador">→</span>
-        <span class="num-fib resultado">8</span>
-        <span class="operador">→</span>
-        <span class="puntos">...</span>
-      </div>
-
-      <p>En JavaScript, el algoritmo se construye con tres variables y un ciclo:</p>
-
-      <div class="bloque-codigo">
-        <pre><code><span class="cod-comentario">// Variables para guardar los dos valores anteriores</span>
-<span class="cod-keyword">let</span> a = <span class="cod-num">1</span>;  <span class="cod-comentario">// Mes 1</span>
-<span class="cod-keyword">let</span> b = <span class="cod-num">1</span>;  <span class="cod-comentario">// Mes 2</span>
-<span class="cod-keyword">let</span> c;      <span class="cod-comentario">// Siguiente valor</span>
-
-<span class="cod-keyword">for</span> (<span class="cod-keyword">let</span> i = <span class="cod-num">3</span>; i &lt;= meses; i++) {
-  c = a + b;  <span class="cod-comentario">// Fibonacci: suma de los dos anteriores</span>
-  a = b;      <span class="cod-comentario">// Avanzar una posición</span>
-  b = c;      <span class="cod-comentario">// Avanzar una posición</span>
-}</code></pre>
-      </div>
-
-      <p>
-        Este algoritmo usa <strong>solo variables simples</strong> (sin arreglos), tal como
-        se requiere en el desafío. Cada iteración del ciclo calcula el siguiente número de
-        Fibonacci y actualiza las variables para la siguiente suma.
+        Este proyecto reúne tres experiencias interactivas. Cada una parte de un problema
+        cotidiano, explica la idea matemática, muestra el algoritmo y permite probarlo con
+        datos ingresados por el usuario.
       </p>
     </section>
 
-    <section id="calculadora" class="tarjeta tarjeta-calculadora">
-      <div class="tarjeta-icono">🖩</div>
-      <h2 class="seccion-titulo">Calculadora de Ahorro Fibonacci</h2>
-      <p>Ingresa la cantidad de meses de tu plan de ahorro y descubre cuánto acumularás.</p>
-
-      <form id="formularioAhorro" onsubmit="return false;">
-        <div class="campo-grupo">
-          <label for="meses" class="campo-etiqueta">📅 Número de meses de ahorro</label>
-          <input
-            type="number"
-            id="meses"
-            name="meses"
-            class="campo-input"
-            placeholder="Ej: 12"
-            min="1"
-            max="50"
-            required
-          />
-          <small class="campo-ayuda">Ingresa un valor entre 1 y 50 meses</small>
-        </div>
-
-        <button type="button" id="btnCalcular" onclick="calcularAhorro()">
-          <span>Calcular mi Ahorro</span>
+    <section class="menu-grid" aria-label="Opciones del proyecto">
+      <article class="opcion-card opcion-fibonacci">
+        <span class="opcion-icono">💰</span>
+        <p class="opcion-etiqueta">Fibonacci</p>
+        <h2>Ahorro Progresivo</h2>
+        <p>
+          Resuelve un plan de ahorro mensual donde cada depósito crece siguiendo la
+          Serie de Fibonacci.
+        </p>
+        <a href="./fibonacci.html" class="opcion-boton">
+          <span>Ver problema</span>
           <span class="btn-icono">→</span>
-        </button>
+        </a>
+      </article>
 
-        <button type="button" id="btnLimpiar" onclick="limpiarResultados()">
-          Limpiar
-        </button>
-      </form>
+      <article class="opcion-card opcion-primos">
+        <span class="opcion-icono">🔐</span>
+        <p class="opcion-etiqueta">Números primos</p>
+        <h2>Verificador de Seguridad de PIN</h2>
+        <p>
+          Usa la idea de divisibilidad y primalidad, base del cifrado RSA que ayuda a
+          proteger pagos digitales.
+        </p>
+        <a href="./primos.html" class="opcion-boton">
+          <span>Ver problema</span>
+          <span class="btn-icono">→</span>
+        </a>
+      </article>
 
-      <div id="mensajeError" class="mensaje-error oculto"></div>
+      <article class="opcion-card opcion-combinado">
+        <span class="opcion-icono">✨</span>
+        <p class="opcion-etiqueta">Fibonacci + primos</p>
+        <h2>Explorador de Fibonacci Primos</h2>
+        <p>
+          Encuentra números que son Fibonacci y primos al mismo tiempo: raros, curiosos
+          y estudiados en seguridad matemática.
+        </p>
+        <a href="./combinado.html" class="opcion-boton">
+          <span>Ver problema</span>
+          <span class="btn-icono">→</span>
+        </a>
+      </article>
     </section>
 
-    <section id="resultadoSeccion" class="tarjeta oculto">
-      <div class="tarjeta-icono">📊</div>
-      <h2 class="seccion-titulo">Resultados de tu Plan de Ahorro</h2>
-
-      <div id="resumenCards" class="resumen-cards"></div>
-
-      <div id="graficoContenedor" class="grafico-contenedor">
-        <h3 class="grafico-titulo">📈 Crecimiento del Ahorro por Mes</h3>
-        <div id="grafico" class="grafico"></div>
-        <p class="grafico-leyenda">Cada barra representa el monto ahorrado en ese mes (Bs.)</p>
-      </div>
-
-      <h3 class="tabla-titulo">📋 Detalle por Mes</h3>
-      <div class="tabla-contenedor">
-        <table id="tablaResultados" class="tabla-resultado">
-          <thead>
-            <tr>
-              <th>Mes</th>
-              <th>Ahorro del Mes</th>
-              <th>Total Acumulado</th>
-              <th>Progreso</th>
-            </tr>
-          </thead>
-          <tbody id="cuerpoTabla">
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <section id="conclusion" class="tarjeta">
-      <div class="tarjeta-icono">✅</div>
-      <h2 class="seccion-titulo">Conclusión</h2>
-      <p>
-        La Serie de Fibonacci demuestra cómo un patrón matemático puede transformarse en
-        una herramienta práctica para la vida cotidiana. En este caso, aplicar Fibonacci al
-        ahorro tiene dos ventajas clave:
-      </p>
+    <section class="tarjeta">
+      <div class="tarjeta-icono">🧩</div>
+      <h2 class="seccion-titulo">Estructura común</h2>
       <div class="ventajas-grid">
         <div class="ventaja-card">
-          <span class="ventaja-icono">🌱</span>
-          <h4>Inicio suave</h4>
-          <p>Los primeros meses se ahorra muy poco (Bs. 1), lo que hace el hábito fácil de comenzar sin presión económica.</p>
+          <span class="ventaja-icono">🌍</span>
+          <h4>Contexto real</h4>
+          <p>Cada página explica para qué sirve el problema fuera del aula.</p>
         </div>
         <div class="ventaja-card">
-          <span class="ventaja-icono">📈</span>
-          <h4>Crecimiento natural</h4>
-          <p>El incremento sigue un patrón orgánico que existe en la naturaleza, por lo que no se siente arbitrario ni forzado.</p>
+          <span class="ventaja-icono">🧮</span>
+          <h4>Algoritmo claro</h4>
+          <p>Se muestra la lógica matemática con una explicación paso a paso.</p>
         </div>
         <div class="ventaja-card">
-          <span class="ventaja-icono">🎯</span>
-          <h4>Metas claras</h4>
-          <p>El algoritmo permite conocer de antemano cuánto se acumulará al final del período planificado.</p>
+          <span class="ventaja-icono">📊</span>
+          <h4>Prueba interactiva</h4>
+          <p>El usuario ingresa datos y recibe resultados en pantalla.</p>
         </div>
       </div>
-      <p>
-        Este proyecto demuestra que las matemáticas no son solo teoría: son herramientas
-        reales que nos ayudan a <strong>tomar mejores decisiones financieras</strong>
-        y a entender los patrones del mundo que nos rodea.
-      </p>
-    </section>
-
-    <section id="enlaces" class="tarjeta tarjeta-enlaces">
-      <div class="tarjeta-icono">🔗</div>
-      <h2 class="seccion-titulo">Enlaces del Proyecto</h2>
-      <div class="enlaces-grid">
-        <a
-          href="https://github.com/Ariel805/DesafioFibonacci"
-          target="_blank"
-          class="enlace-btn enlace-github"
-          id="linkRepo"
-        >
-          <span class="enlace-icono">📁</span>
-          <span>Ver Repositorio en GitHub</span>
-        </a>
-        <a
-          href="https://ariel805.github.io/DesafioFibonacci/"
-          target="_blank"
-          class="enlace-btn enlace-pagina"
-          id="linkPagina"
-        >
-          <span class="enlace-icono">🌐</span>
-          <span>Ver Página Publicada</span>
-        </a>
-      </div>
-     
     </section>
 
   </main>
 
   <footer id="pie">
-    <p>Desafío Web 2025 — Matemáticas Aplicadas a Problemas del Mundo Real</p>
-    <p>Desarrollado con HTML, CSS y JavaScript puro ❤️</p>
+    <p>Desafío Web 2025 - Matemáticas Aplicadas a Problemas del Mundo Real</p>
+    <p>Desarrollado con HTML, CSS y JavaScript puro</p>
   </footer>
 
-  <script src="./JS/script.js"></script>
 </body>
 </html>

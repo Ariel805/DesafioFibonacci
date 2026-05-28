@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Explorador de Fibonacci Primos</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Nunito:wght@400;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="./styles/estilos.css" />
+</head>
+<body>
+
+  <header id="encabezado" class="tema-combinado">
+    <div class="header-decoracion"></div>
+    <nav class="barra-navegacion" aria-label="Navegación principal">
+      <a href="./index.html">← Inicio</a>
+      <a href="./fibonacci.html">Volver a Fibonacci</a>
+    </nav>
+    <div class="header-contenido">
+      <div class="moneda-icono">✨</div>
+      <h1 class="titulo-principal">Explorador de Fibonacci Primos</h1>
+      <h2 class="titulo-subtitulo">números que son Fibonacci y primos al mismo tiempo</h2>
+      <p class="header-alumno">Problema real - Búsqueda de identificadores matemáticos raros</p>
+      <p class="header-nombre"><strong>Ariel Orlando Bustillos Cadena</strong></p>
+    </div>
+    <div class="ola-decoracion">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+        <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#f8f5f0"/>
+      </svg>
+    </div>
+  </header>
+
+  <main class="contenedor-principal">
+
+    <section id="contexto" class="tarjeta">
+      <div class="tarjeta-icono">🧬</div>
+      <h2 class="seccion-titulo">Contexto del Problema</h2>
+      <p>
+        En sistemas de seguridad, simulación y análisis de datos a veces se buscan números
+        con propiedades especiales. Un ejemplo interesante son los <strong>Fibonacci primos</strong>:
+        números que aparecen en la Serie de Fibonacci y además son primos.
+      </p>
+      <p>
+        Son extremadamente raros. Por eso este explorador funciona como un buscador educativo
+        de candidatos para códigos de respaldo o identificadores matemáticos: primero genera
+        Fibonacci y luego filtra solo los que también pasan la prueba de número primo.
+      </p>
+
+      <div class="ejemplo-tabla-mini">
+        <table>
+          <thead>
+            <tr><th>Índice</th><th>Fibonacci</th><th>¿Es primo?</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>F3</td><td>2</td><td>Sí</td></tr>
+            <tr><td>F4</td><td>3</td><td>Sí</td></tr>
+            <tr><td>F5</td><td>5</td><td>Sí</td></tr>
+            <tr><td>F7</td><td>13</td><td>Sí</td></tr>
+            <tr><td>F11</td><td>89</td><td>Sí</td></tr>
+          </tbody>
+        </table>
+        <p class="tabla-nota">📌 Mientras más avanza la serie, más separados aparecen estos números.</p>
+      </div>
+    </section>
+
+    <section id="algoritmo" class="tarjeta">
+      <div class="tarjeta-icono">🧮</div>
+      <h2 class="seccion-titulo">Explicación del Algoritmo</h2>
+      <p>
+        El algoritmo combina dos ideas: generar la Serie de Fibonacci y revisar si cada valor
+        generado es primo. Solo se guardan como candidatos los números que cumplen ambas
+        condiciones.
+      </p>
+
+      <div class="secuencia-visual">
+        <span class="num-fib">1</span>
+        <span class="num-fib">1</span>
+        <span class="num-fib resultado">2</span>
+        <span class="num-fib resultado">3</span>
+        <span class="num-fib resultado">5</span>
+        <span class="num-fib">8</span>
+        <span class="num-fib resultado">13</span>
+        <span class="puntos">...</span>
+      </div>
+
+      <div class="bloque-codigo">
+        <pre><code><span class="cod-keyword">for</span> (<span class="cod-keyword">let</span> i = <span class="cod-num">1</span>; i &lt;= terminos; i++) {
+  valor = generarFibonacci(i);
+
+  <span class="cod-keyword">if</span> (esPrimo(valor)) {
+    guardarComoFibonacciPrimo(valor);
+  }
+}</code></pre>
+      </div>
+
+      <p>
+        Esta combinación permite observar una rareza matemática: no todos los Fibonacci son
+        primos, y no todos los primos aparecen dentro de Fibonacci.
+      </p>
+    </section>
+
+    <section id="calculadora" class="tarjeta tarjeta-calculadora tarjeta-combinada">
+      <div class="tarjeta-icono">🔎</div>
+      <h2 class="seccion-titulo">Buscador de Fibonacci Primos</h2>
+      <p>Elige cuántos términos de Fibonacci quieres analizar y el programa buscará los primos.</p>
+
+      <form id="formularioCombinado" onsubmit="return false;">
+        <div class="campo-grupo">
+          <label for="terminosFib" class="campo-etiqueta">🔢 Cantidad de términos</label>
+          <input
+            type="number"
+            id="terminosFib"
+            name="terminosFib"
+            class="campo-input"
+            placeholder="Ej: 23"
+            min="3"
+            max="50"
+            required
+          />
+          <small class="campo-ayuda">Ingresa un valor entre 3 y 50 términos</small>
+        </div>
+
+        <button type="button" id="btnExplorar" onclick="explorarFibonacciPrimos()">
+          <span>Explorar números raros</span>
+          <span class="btn-icono">→</span>
+        </button>
+
+        <button type="button" id="btnLimpiarCombinado" onclick="limpiarCombinado()">
+          Limpiar
+        </button>
+      </form>
+
+      <div id="mensajeErrorCombinado" class="mensaje-error oculto"></div>
+    </section>
+
+    <section id="resultadoSeccionCombinado" class="tarjeta oculto">
+      <div class="tarjeta-icono">📊</div>
+      <h2 class="seccion-titulo">Resultados del Explorador</h2>
+
+      <div id="resumenCardsCombinado" class="resumen-cards"></div>
+
+      <div class="grafico-contenedor">
+        <h3 class="grafico-titulo">📈 Fibonacci analizados</h3>
+        <div id="graficoCombinado" class="grafico grafico-combinado"></div>
+        <p class="grafico-leyenda">Las barras doradas marcan los números que son Fibonacci primos.</p>
+      </div>
+
+      <div id="codigosEncontrados" class="chips-contenedor"></div>
+
+      <h3 class="tabla-titulo">📋 Detalle de la búsqueda</h3>
+      <div class="tabla-contenedor">
+        <table class="tabla-resultado">
+          <thead>
+            <tr>
+              <th>Índice</th>
+              <th>Número Fibonacci</th>
+              <th>¿Primo?</th>
+              <th>Uso educativo</th>
+            </tr>
+          </thead>
+          <tbody id="cuerpoTablaCombinado"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="conclusion" class="tarjeta">
+      <div class="tarjeta-icono">✅</div>
+      <h2 class="seccion-titulo">Conclusión</h2>
+      <p>
+        Los Fibonacci primos son un buen ejemplo de cómo dos conceptos matemáticos pueden
+        combinarse para crear una búsqueda más interesante. En criptografía y seguridad se
+        estudian patrones numéricos especiales, y este proyecto muestra de forma sencilla cómo
+        filtrar una serie usando una propiedad de primalidad.
+      </p>
+      <div class="ventajas-grid">
+        <div class="ventaja-card">
+          <span class="ventaja-icono">🌿</span>
+          <h4>Fibonacci</h4>
+          <p>Genera una secuencia con crecimiento progresivo.</p>
+        </div>
+        <div class="ventaja-card">
+          <span class="ventaja-icono">🔐</span>
+          <h4>Primos</h4>
+          <p>Filtra números con divisores muy limitados.</p>
+        </div>
+        <div class="ventaja-card">
+          <span class="ventaja-icono">✨</span>
+          <h4>Rareza</h4>
+          <p>La unión de ambas reglas produce pocos candidatos.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="pie">
+    <p>Desafío Web 2025 - Matemáticas Aplicadas a Problemas del Mundo Real</p>
+    <p><a href="./index.html">Volver al inicio</a></p>
+  </footer>
+
+  <script src="./JS/combinado.js"></script>
+</body>
+</html>

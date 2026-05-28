@@ -1,68 +1,72 @@
-#  Ahorro Progresivo con Fibonacci
+# Matemáticas Aplicadas a Problemas Reales
 
-**Desafío Web 2026**
+**Desafío Web 2025 - Fibonacci, números primos y Fibonacci primos**
 
-##  Descripción
+## Descripción
 
-Página web interactiva que aplica la **Serie de Fibonacci** para simular un plan de ahorro progresivo. El usuario ingresa la cantidad de meses y la página calcula cuánto ahorrará mes a mes siguiendo el patrón matemático de Fibonacci.
+Proyecto web interactivo con tres páginas educativas. Cada una resuelve un problema de la vida real usando una idea matemática: la Serie de Fibonacci, los números primos y la combinación de ambos.
 
-##  Enlaces
+## Páginas incluidas
 
--  **Repositorio:** [github.com/Ariel805/DesafioFibonacci](https://github.com/Ariel805/DesafioFibonacci)
--  **Página publicada:** [Ariel805.github.io/DesafioFibonacci](https://Ariel805.github.io/DesafioFibonacci)
+| Archivo | Tema | Problema que resuelve |
+|---|---|---|
+| `index.html` | Menú principal | Interfaz con 3 botones para entrar a cada resolución |
+| `fibonacci.html` | Serie de Fibonacci | Plan de ahorro progresivo mes a mes |
+| `primos.html` | Números primos | Verificador educativo de seguridad de PIN |
+| `combinado.html` | Fibonacci + primos | Explorador de números Fibonacci primos |
 
-##  Tecnologías utilizadas
+## Tecnologías utilizadas
 
 | Tecnología | Uso |
-|-----------|-----|
-| HTML5 | Estructura de la página |
-| CSS3 | Diseño visual y responsivo |
-| JavaScript (puro) | Lógica de Fibonacci y manejo del formulario |
-| Git / GitHub | Control de versiones |
-| GitHub Pages | Publicación en la web |
+|---|---|
+| HTML5 | Estructura de las páginas |
+| CSS3 | Diseño moderno, responsivo y coherente entre páginas |
+| JavaScript puro | Cálculos, validaciones, tablas y gráficos |
+| Google Fonts | Tipografías Merriweather y Nunito |
 
-##  Estructura del proyecto
+## Estructura del proyecto
 
-```
-desafio-fibonacci/
-│
-├── index.html          ← Página principal
-├── css/
-│   └── estilos.css     ← Estilos y diseño responsivo
-├── js/
-│   └── script.js       ← Lógica de Fibonacci
-└── README.md           ← Este archivo
-```
-
-##  Cómo usar
-
-1. Abre la página en tu navegador.
-2. Ingresa el número de meses en el formulario.
-3. Haz clic en **"Calcular mi Ahorro"**.
-4. Observa la tabla, el gráfico y el resumen generado.
-
-##  Algoritmo de Fibonacci
-
-```javascript
-let a = 1;  // Mes 1
-let b = 1;  // Mes 2
-let c;      // Siguiente valor
-
-for (let i = 3; i <= meses; i++) {
-    c = a + b;   // Suma de los dos anteriores
-    a = b;
-    b = c;
-}
+```text
+DesafioFibonacci/
+├── index.html
+├── fibonacci.html
+├── primos.html
+├── combinado.html
+├── styles/
+│   └── estilos.css
+├── JS/
+│   ├── fibonacci.js
+│   ├── primos.js
+│   └── combinado.js
+└── README.md
 ```
 
-##  Criterios cumplidos
+## Cómo usar
 
-- [x] Contexto del problema real explicado
-- [x] Algoritmo de Fibonacci implementado y explicado
-- [x] Formulario de entrada con `getElementById`
-- [x] Botón de ejecución
-- [x] Resultados mostrados en pantalla (tabla + gráfico)
-- [x] Diseño responsivo (móvil, tablet, escritorio)
-- [x] Código organizado en HTML, CSS y JS separados
-- [x] Repositorio Git entregado
-- [x] Página publicada en la web
+1. Abre `index.html` en el navegador.
+2. Elige una de las tres opciones.
+3. Ingresa los datos solicitados en la calculadora.
+4. Revisa el resumen, el gráfico y la tabla generada.
+
+## Ejemplos de prueba
+
+| Página | Entrada sugerida | Resultado esperado |
+|---|---:|---|
+| Fibonacci | `6` meses | Total acumulado: `Bs. 20` |
+| Primos | `7919` | Es primo y obtiene nivel alto si no presenta patrones comunes |
+| Combinado | `23` términos | Encuentra Fibonacci primos como `2`, `3`, `5`, `13`, `89`, `233`, `1597` y `28657` |
+
+## Criterios cumplidos
+
+- [x] Problemas de la vida real explicados.
+- [x] Algoritmos descritos paso a paso.
+- [x] Formularios con entradas del usuario.
+- [x] Uso de `getElementById` en JavaScript.
+- [x] Botones de ejecución y limpieza.
+- [x] Resultados mostrados en tarjetas, gráficos y tablas.
+- [x] Diseño responsivo para móvil, tablet y escritorio.
+- [x] Archivos HTML, CSS y JS separados.
+
+## Nota de seguridad
+
+La página de PIN es educativa. No se debe ingresar un PIN bancario real. La seguridad real de tarjetas, pagos digitales y sistemas bancarios depende de protocolos completos, no solo de que un número sea primo.

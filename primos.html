@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verificador de Seguridad de PIN</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Nunito:wght@400;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="./styles/estilos.css" />
+</head>
+<body>
+
+  <header id="encabezado" class="tema-primos">
+    <div class="header-decoracion"></div>
+    <nav class="barra-navegacion" aria-label="Navegación principal">
+      <a href="./index.html">← Inicio</a>
+      <a href="./combinado.html">Siguiente: combinado</a>
+    </nav>
+    <div class="header-contenido">
+      <div class="moneda-icono">🔐</div>
+      <h1 class="titulo-principal">Verificador de Seguridad de PIN</h1>
+      <h2 class="titulo-subtitulo">números primos y la idea detrás del cifrado RSA</h2>
+      <p class="header-alumno">Problema real - Seguridad básica de códigos numéricos</p>
+      <p class="header-nombre"><strong>Ariel Orlando Bustillos Cadena</strong></p>
+    </div>
+    <div class="ola-decoracion">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+        <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#f8f5f0"/>
+      </svg>
+    </div>
+  </header>
+
+  <main class="contenedor-principal">
+
+    <section id="contexto" class="tarjeta">
+      <div class="tarjeta-icono">💳</div>
+      <h2 class="seccion-titulo">Contexto del Problema</h2>
+      <p>
+        Los pagos digitales, las tarjetas y muchas comunicaciones seguras usan métodos de
+        cifrado. Uno de los más conocidos es <strong>RSA</strong>, que se apoya en números
+        primos muy grandes porque multiplicarlos es fácil, pero descubrir sus factores puede
+        ser extremadamente difícil.
+      </p>
+      <p>
+        En la vida diaria también usamos códigos numéricos como un PIN. Este verificador es
+        educativo: no convierte un PIN en una contraseña perfecta, pero muestra cómo una idea
+        matemática como la primalidad puede combinarse con otras reglas para detectar códigos
+        demasiado obvios.
+      </p>
+
+      <div class="ejemplo-tabla-mini">
+        <table>
+          <thead>
+            <tr><th>PIN</th><th>Observación</th><th>Nivel esperado</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1234</td><td>Secuencia común</td><td>Bajo</td></tr>
+            <tr><td>7777</td><td>Dígitos repetidos</td><td>Bajo</td></tr>
+            <tr><td>7919</td><td>Es primo y no tiene patrón simple</td><td>Alto</td></tr>
+          </tbody>
+        </table>
+        <p class="tabla-nota">📌 Un PIN real debe ser privado, aleatorio y no basado en datos personales.</p>
+      </div>
+    </section>
+
+    <section id="algoritmo" class="tarjeta">
+      <div class="tarjeta-icono">🧮</div>
+      <h2 class="seccion-titulo">Explicación del Algoritmo</h2>
+      <p>
+        Un número primo es aquel que solo tiene dos divisores positivos: 1 y él mismo. Para
+        verificar si un número es primo, no hace falta probar todos los divisores; basta con
+        revisar hasta su raíz cuadrada.
+      </p>
+
+      <div class="secuencia-visual secuencia-lineal">
+        <span class="num-fib">2</span>
+        <span class="num-fib resultado">3</span>
+        <span class="num-fib resultado">5</span>
+        <span class="num-fib resultado">7</span>
+        <span class="num-fib resultado">11</span>
+        <span class="num-fib resultado">13</span>
+        <span class="num-fib resultado">17</span>
+        <span class="puntos">...</span>
+      </div>
+
+      <div class="bloque-codigo">
+        <pre><code><span class="cod-keyword">function</span> esPrimo(numero) {
+  <span class="cod-keyword">if</span> (numero &lt; <span class="cod-num">2</span>) <span class="cod-keyword">return</span> false;
+
+  <span class="cod-keyword">for</span> (<span class="cod-keyword">let</span> divisor = <span class="cod-num">2</span>; divisor * divisor &lt;= numero; divisor++) {
+    <span class="cod-keyword">if</span> (numero % divisor === <span class="cod-num">0</span>) {
+      <span class="cod-keyword">return</span> false;
+    }
+  }
+
+  <span class="cod-keyword">return</span> true;
+}</code></pre>
+      </div>
+
+      <p>
+        El simulador evalúa si el PIN es primo y además revisa patrones inseguros: secuencias,
+        números repetidos, códigos comunes y variedad de dígitos.
+      </p>
+    </section>
+
+    <section id="calculadora" class="tarjeta tarjeta-calculadora tarjeta-seguridad">
+      <div class="tarjeta-icono">🛡️</div>
+      <h2 class="seccion-titulo">Analizador de PIN</h2>
+      <p>Ingresa un PIN numérico de 4 a 6 dígitos para revisar su seguridad educativa.</p>
+
+      <form id="formularioPin" onsubmit="return false;">
+        <div class="campo-grupo">
+          <label for="pin" class="campo-etiqueta">🔢 PIN a evaluar</label>
+          <input
+            type="password"
+            id="pin"
+            name="pin"
+            class="campo-input"
+            placeholder="Ej: 7919"
+            minlength="4"
+            maxlength="6"
+            inputmode="numeric"
+            autocomplete="off"
+            required
+          />
+          <small class="campo-ayuda">Usa solo números. No ingreses tu PIN bancario real.</small>
+        </div>
+
+        <button type="button" id="btnVerificarPin" onclick="verificarPin()">
+          <span>Verificar seguridad</span>
+          <span class="btn-icono">→</span>
+        </button>
+
+        <button type="button" id="btnLimpiarPin" onclick="limpiarPin()">
+          Limpiar
+        </button>
+      </form>
+
+      <div id="mensajeErrorPrimo" class="mensaje-error oculto"></div>
+    </section>
+
+    <section id="resultadoSeccionPrimo" class="tarjeta oculto">
+      <div class="tarjeta-icono">📊</div>
+      <h2 class="seccion-titulo">Resultados del PIN</h2>
+
+      <div id="resumenCardsPrimo" class="resumen-cards"></div>
+
+      <div class="grafico-contenedor">
+        <h3 class="grafico-titulo">📈 Medidor de seguridad</h3>
+        <div id="graficoSeguridad" class="medidor-seguridad"></div>
+        <p id="detallePrimo" class="grafico-leyenda"></p>
+      </div>
+
+      <h3 class="tabla-titulo">📋 Pruebas realizadas</h3>
+      <div class="tabla-contenedor">
+        <table class="tabla-resultado">
+          <thead>
+            <tr>
+              <th>Prueba</th>
+              <th>Resultado</th>
+              <th>Puntos</th>
+              <th>Explicación</th>
+            </tr>
+          </thead>
+          <tbody id="cuerpoTablaPin"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="conclusion" class="tarjeta">
+      <div class="tarjeta-icono">✅</div>
+      <h2 class="seccion-titulo">Conclusión</h2>
+      <p>
+        Los números primos son importantes porque permiten construir sistemas de seguridad
+        como RSA. En este ejemplo, la idea se simplifica para analizar un PIN: un número primo
+        es mejor que uno con patrones evidentes, pero la seguridad real depende de que el PIN
+        sea secreto, difícil de adivinar y no esté relacionado con fechas personales.
+      </p>
+      <div class="ventajas-grid">
+        <div class="ventaja-card">
+          <span class="ventaja-icono">🔎</span>
+          <h4>Divisibilidad</h4>
+          <p>El algoritmo busca divisores para decidir si el número es primo.</p>
+        </div>
+        <div class="ventaja-card">
+          <span class="ventaja-icono">🔐</span>
+          <h4>Seguridad</h4>
+          <p>Se penalizan patrones fáciles como 1234, 0000 o repeticiones.</p>
+        </div>
+        <div class="ventaja-card">
+          <span class="ventaja-icono">💳</span>
+          <h4>Conexión real</h4>
+          <p>La criptografía moderna usa primos enormes para proteger información.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="pie">
+    <p>Desafío Web 2025 - Matemáticas Aplicadas a Problemas del Mundo Real</p>
+    <p><a href="./index.html">Volver al inicio</a></p>
+  </footer>
+
+  <script src="./JS/primos.js"></script>
+</body>
+</html>

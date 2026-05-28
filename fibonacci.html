@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ahorro Progresivo con Fibonacci</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Nunito:wght@400;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="./styles/estilos.css" />
+</head>
+<body>
+
+  <header id="encabezado" class="tema-fibonacci">
+    <div class="header-decoracion"></div>
+    <nav class="barra-navegacion" aria-label="Navegación principal">
+      <a href="./index.html">← Inicio</a>
+      <a href="./primos.html">Siguiente: primos</a>
+    </nav>
+    <div class="header-contenido">
+      <div class="moneda-icono">💰</div>
+      <h1 class="titulo-principal">Ahorro Progresivo</h1>
+      <h2 class="titulo-subtitulo">con la Serie de Fibonacci</h2>
+      <p class="header-alumno">Problema real - Crecimiento gradual de un hábito financiero</p>
+      <p class="header-nombre"><strong>Ariel Orlando Bustillos Cadena</strong></p>
+    </div>
+    <div class="ola-decoracion">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+        <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#f8f5f0"/>
+      </svg>
+    </div>
+  </header>
+
+  <main class="contenedor-principal">
+
+    <section id="contexto" class="tarjeta">
+      <div class="tarjeta-icono">🌍</div>
+      <h2 class="seccion-titulo">Contexto del Problema</h2>
+      <p>
+        Muchas personas quieren ahorrar dinero, pero abandonan el hábito cuando el esfuerzo
+        inicial se siente demasiado grande. Una alternativa más realista es empezar con una
+        cantidad pequeña y aumentar el monto poco a poco.
+      </p>
+      <p>
+        En este proyecto se propone un plan donde cada mes se deposita la cantidad que
+        corresponde a la <strong>Serie de Fibonacci</strong>. Así, los primeros depósitos son
+        suaves y luego crecen de manera progresiva: 1, 1, 2, 3, 5, 8...
+      </p>
+
+      <div class="ejemplo-tabla-mini">
+        <table>
+          <thead>
+            <tr><th>Mes</th><th>Ahorro mensual</th><th>Total acumulado</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>Bs. 1</td><td>Bs. 1</td></tr>
+            <tr><td>2</td><td>Bs. 1</td><td>Bs. 2</td></tr>
+            <tr><td>3</td><td>Bs. 2</td><td>Bs. 4</td></tr>
+            <tr><td>4</td><td>Bs. 3</td><td>Bs. 7</td></tr>
+            <tr><td>5</td><td>Bs. 5</td><td>Bs. 12</td></tr>
+            <tr><td>6</td><td>Bs. 8</td><td>Bs. 20</td></tr>
+          </tbody>
+        </table>
+        <p class="tabla-nota">📌 Ejemplo con 6 meses de ahorro Fibonacci</p>
+      </div>
+    </section>
+
+    <section id="algoritmo" class="tarjeta">
+      <div class="tarjeta-icono">🧮</div>
+      <h2 class="seccion-titulo">Explicación del Algoritmo</h2>
+      <p>
+        La Serie de Fibonacci es una secuencia donde cada número se obtiene sumando los dos
+        anteriores. Para calcular el ahorro de cada mes se guardan los dos últimos valores y
+        se genera el siguiente con una suma.
+      </p>
+
+      <div class="secuencia-visual">
+        <span class="num-fib">1</span>
+        <span class="operador">+</span>
+        <span class="num-fib">1</span>
+        <span class="operador">=</span>
+        <span class="num-fib resultado">2</span>
+        <span class="operador">→</span>
+        <span class="num-fib resultado">3</span>
+        <span class="operador">→</span>
+        <span class="num-fib resultado">5</span>
+        <span class="operador">→</span>
+        <span class="num-fib resultado">8</span>
+      </div>
+
+      <div class="bloque-codigo">
+        <pre><code><span class="cod-comentario">// Variables para guardar los dos valores anteriores</span>
+<span class="cod-keyword">let</span> a = <span class="cod-num">1</span>;
+<span class="cod-keyword">let</span> b = <span class="cod-num">1</span>;
+<span class="cod-keyword">let</span> c;
+
+<span class="cod-keyword">for</span> (<span class="cod-keyword">let</span> i = <span class="cod-num">3</span>; i &lt;= meses; i++) {
+  c = a + b;
+  a = b;
+  b = c;
+}</code></pre>
+      </div>
+
+      <p>
+        El algoritmo permite saber cuánto se debe ahorrar cada mes y cuál será el total
+        acumulado al terminar el plan.
+      </p>
+    </section>
+
+    <section id="calculadora" class="tarjeta tarjeta-calculadora">
+      <div class="tarjeta-icono">🖩</div>
+      <h2 class="seccion-titulo">Calculadora de Ahorro Fibonacci</h2>
+      <p>Ingresa la cantidad de meses de tu plan y descubre cuánto acumularás.</p>
+
+      <form id="formularioAhorro" onsubmit="return false;">
+        <div class="campo-grupo">
+          <label for="meses" class="campo-etiqueta">📅 Número de meses de ahorro</label>
+          <input
+            type="number"
+            id="meses"
+            name="meses"
+            class="campo-input"
+            placeholder="Ej: 12"
+            min="1"
+            max="50"
+            required
+          />
+          <small class="campo-ayuda">Ingresa un valor entre 1 y 50 meses</small>
+        </div>
+
+        <button type="button" id="btnCalcular" onclick="calcularAhorro()">
+          <span>Calcular mi ahorro</span>
+          <span class="btn-icono">→</span>
+        </button>
+
+        <button type="button" id="btnLimpiar" onclick="limpiarResultados()">
+          Limpiar
+        </button>
+      </form>
+
+      <div id="mensajeError" class="mensaje-error oculto"></div>
+    </section>
+
+    <section id="resultadoSeccion" class="tarjeta oculto">
+      <div class="tarjeta-icono">📊</div>
+      <h2 class="seccion-titulo">Resultados del Plan</h2>
+
+      <div id="resumenCards" class="resumen-cards"></div>
+
+      <div class="grafico-contenedor">
+        <h3 class="grafico-titulo">📈 Crecimiento del ahorro por mes</h3>
+        <div id="grafico" class="grafico"></div>
+        <p class="grafico-leyenda">Cada barra representa el monto ahorrado en ese mes.</p>
+      </div>
+
+      <h3 class="tabla-titulo">📋 Detalle por mes</h3>
+      <div class="tabla-contenedor">
+        <table class="tabla-resultado">
+          <thead>
+            <tr>
+              <th>Mes</th>
+              <th>Ahorro del mes</th>
+              <th>Total acumulado</th>
+              <th>Progreso</th>
+            </tr>
+          </thead>
+          <tbody id="cuerpoTabla"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="conclusion" class="tarjeta">
+      <div class="tarjeta-icono">✅</div>
+      <h2 class="seccion-titulo">Conclusión</h2>
+      <p>
+        Fibonacci ayuda a crear un plan de ahorro que empieza fácil y aumenta de manera
+        natural. Este tipo de crecimiento demuestra que una regla matemática puede
+        convertirse en una herramienta práctica para tomar mejores decisiones financieras.
+      </p>
+      <div class="ventajas-grid">
+        <div class="ventaja-card">
+          <span class="ventaja-icono">🌱</span>
+          <h4>Inicio suave</h4>
+          <p>Los primeros meses requieren poco dinero y ayudan a construir el hábito.</p>
+        </div>
+        <div class="ventaja-card">
+          <span class="ventaja-icono">📈</span>
+          <h4>Crecimiento claro</h4>
+          <p>Cada nuevo monto se calcula con una regla fácil de entender.</p>
+        </div>
+        <div class="ventaja-card">
+          <span class="ventaja-icono">🎯</span>
+          <h4>Meta visible</h4>
+          <p>La tabla permite ver cuánto se acumula al final del período.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="pie">
+    <p>Desafío Web 2025 - Matemáticas Aplicadas a Problemas del Mundo Real</p>
+    <p><a href="./index.html">Volver al inicio</a></p>
+  </footer>
+
+  <script src="./JS/fibonacci.js"></script>
+</body>
+</html>
