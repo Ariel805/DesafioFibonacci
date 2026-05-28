@@ -67,6 +67,3 @@ DesafioFibonacci/
 - [x] Diseño responsivo para móvil, tablet y escritorio.
 - [x] Archivos HTML, CSS y JS separados.
 
-## Nota de seguridad
-
-La página de PIN es educativa. No se debe ingresar un PIN bancario real. La seguridad real de tarjetas, pagos digitales y sistemas bancarios depende de protocolos completos, no solo de que un número sea primo.
